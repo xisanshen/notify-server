@@ -47,11 +47,13 @@ const goodWord = async () => {
 
 // 天气信息
 const weatherInfo = async () => {
-  const weather = await API.getWeather('蚌埠')
+  const weather = await API.getWeather('武汉')
   if (weather) {
     const lunarInfo = await API.getLunarDate(weather.date)
     const oneWord = await API.getOneWord()
-    const template = textCardTemplate({ ...weather, lunarInfo, oneWord })
+    const sayLove = await API.getSaylove()
+    const songLyrics = await API.getSongLyrics()
+    const template = textCardTemplate({ ...weather, lunarInfo,sayLove,songLyrics,oneWord })
     console.log('weatherInfo', template)
 
     // 发送消息
@@ -62,5 +64,5 @@ const weatherInfo = async () => {
 // goodMorning
 export const goodMorning = async () => {
   await weatherInfo()
-  await goodWord()
+  // await goodWord()
 }

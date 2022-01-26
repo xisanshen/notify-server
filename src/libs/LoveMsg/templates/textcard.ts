@@ -76,21 +76,21 @@ ${win}：${win_speed_day}
 
   if (sayLove) {
     description += `
-『 ${sayLove.content} 』`
+『 ${sayLove.content} 』\n`
   }
   if (songLyrics) {
     description += `
-『 ${songLyrics.source} 』`
+『${songLyrics.source}』${songLyrics.content}\n`
   }
   if (oneWord) {
     description += `
-『 ${oneWord.hitokoto} 』`
+『 ${oneWord.hitokoto} 』\n`
   }
 
   // 内容末尾，自定义
-  description += `🌑 🌒 🌓 🌔 🌕 🌝 😛`
+  description += ` 🌑 🌒 🌓 🌔 🌕 🌝 😛\n`
 
-  const title = `这是我们相识的第 ${dateLength} 天哦`
+  const title = `早安哦，小宝贝~\n`+`这是我们相识的第 ${dateLength} 天哦`
 
   return {
     msgtype: 'textcard',
@@ -99,7 +99,7 @@ ${win}：${win_speed_day}
       description,
       //   url: 'https://api.lovelive.tools/api/SweetNothings',
       //   url: 'https://v1.jinrishici.com/all.svg',
-      // url: 'https://api.vvhan.com/api/60s', // 60s看世界
+      url: 'https://api.vvhan.com/api/60s', // 60s看世界
       // btntxt: 'By崽崽',
     },
   }
