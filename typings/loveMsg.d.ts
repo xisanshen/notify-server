@@ -157,6 +157,9 @@ interface OneWordProps {
 type TextCardTemplateProps = IWeatherResponseProps & {
   lunarInfo: ResLunarDateProps
   oneWord?: OneWordProps | null
+  sayLove?: SayloveProps | null
+  songLyrics?: IVerseProps | null
+  netEaseCloud?: NetEaseCloudProps | null
 }
 
 // goodEvening

@@ -11,8 +11,8 @@
 
 import dayjs from '../../../utils/dayjs'
 
-// 相识的日子
-const start_stamp = '2021-03-26'
+// 的日子
+const start_stamp = '2018-05-01'
 
 export const textCardTemplate = (data: TextCardTemplateProps) => {
   const {
@@ -31,6 +31,8 @@ export const textCardTemplate = (data: TextCardTemplateProps) => {
     lunarInfo,
     week,
     oneWord,
+    sayLove,
+    songLyrics,
   } = data
 
   // 今日、恋爱天数
@@ -62,9 +64,9 @@ ${win}：${win_speed_day}
   // 最高温度
   if (+tem1 <= 3) {
     description += `
-哈喽哈喽~这里是来自崽崽的爱心提醒哦：
+哈喽哈喽~这里是爱心提醒哦：
 今日最高温度仅为🥶 ${tem1}℃，可冷可冷了~
-鱼崽崽可要注意保暖哦~\n`
+要注意保暖哦~\n`
   }
 
   //   if (air_tips) {
@@ -72,16 +74,23 @@ ${win}：${win_speed_day}
   // 出行建议：${air_tips}`
   //   }
 
+  if (sayLove) {
+    description += `
+『 ${sayLove.content} 』`
+  }
+  if (songLyrics) {
+    description += `
+『 ${songLyrics.source} 』`
+  }
   if (oneWord) {
     description += `
 『 ${oneWord.hitokoto} 』`
   }
 
   // 内容末尾，自定义
-  description += `
-  [ 点我有惊喜 ] ❤️ 🧡 💛 💚 💖`
+  description += `🌑 🌒 🌓 🌔 🌕 🌝 😛`
 
-  const title = `这是我们相识的第 ${dateLength} 天`
+  const title = `这是我们相识的第 ${dateLength} 天哦`
 
   return {
     msgtype: 'textcard',
@@ -90,8 +99,8 @@ ${win}：${win_speed_day}
       description,
       //   url: 'https://api.lovelive.tools/api/SweetNothings',
       //   url: 'https://v1.jinrishici.com/all.svg',
-      url: 'https://api.vvhan.com/api/60s', // 60s看世界
-      btntxt: 'By崽崽',
+      // url: 'https://api.vvhan.com/api/60s', // 60s看世界
+      // btntxt: 'By崽崽',
     },
   }
 }
